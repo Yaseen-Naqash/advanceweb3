@@ -1,0 +1,57 @@
+session 1
+
+1- in cmd : django-admin startproject projectname
+
+
+2- open folder with vs code
+    new terminal
+
+3- craete virtual enviroment
+    python -m venv myenv
+    ./myenv/Scripts/Activate
+    (myenv) PS C:\Users\Asgardia\Desktop\advanceweb2> pip install django
+
+
+4- python manage.py startapp appname
+
+
+5- add app to the installed apps in setting.py (in main folder)
+    mainfolder > setting.py > 
+        INSTALLED_APPS = [
+
+            .
+            .
+            .
+
+            'appname',
+        ]
+
+
+
+    MODEL CREATING 
+        1- write your model class inheriting from models.Model
+        2- python manage.py makemigrations
+        3- python manage.py migrate
+        4- python manage.py createsuperuser
+        5- http://localhost:8000/admin/
+
+
+
+    USING IMAGE FIELD
+    
+        1- pip install pillow
+
+        2- use models.imagefield() in your models
+
+        3- add these to settings.py 
+            MEDIA_URL = 'media/'
+            MEDIA_ROOT = 'uploaded_images'
+
+        4- add these to urls.py 
+            from django.conf.urls.static import static
+            from django.conf import settings
+
+            urlpatterns = [
+                ...
+            ]
+            urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
