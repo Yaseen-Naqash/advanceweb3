@@ -55,3 +55,26 @@ session 1
                 ...
             ]
             urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+session 2
+
+
+    DJANGO JALALI DATE
+    1- pip install django_jalali
+    2- add it to settings.py before custom apps 'django_jalali',
+    3- in models.py from django_jalali.db import models as jmodels
+    4- wirte you models using jmodels.jDateField(null=True) and jmodels.jDateTimeField(null=True)
+
+
+
+    USING ABSTRACT USER OF DJANGO
+
+        1- from django.contrib.auth.models import AbstractUser
+
+        2- inherit you model like class ModelName(AbstractUser)
+
+        3- in settings.py add :
+            AUTH_USER_MODEL = 'YourAppName.ModelName'
+
+        4- makemigrations and migrate
