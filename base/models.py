@@ -10,33 +10,36 @@ phone_validator = RegexValidator(
     regex=r'^\d+$',
     message="Phone number must contain only digits"
 )
-class Blog(models.Model):
+class Product(models.Model):
+
+    SIZE = [
+        ('0','XXL'),
+        ('1','XL'),
+        ('2','L'),
+        ('3','M'),
+
+    ]
     
-    title = models.CharField(max_length=127, null=True, verbose_name='تیتر')
-    body = models.TextField(max_length=2047, null=True, blank=True, verbose_name='متن بلاگ')
-    views = models.IntegerField(null=True, verbose_name='نمایش')
-    rate = models.FloatField(null=True, verbose_name='امتیاز')
+    title = models.CharField(max_length=127, null=True, verbose_name='عنوان')
+    details = models.TextField(max_length=2047, null=True, blank=True, verbose_name='توضیحات')
+    price = models.IntegerField(null=True, verbose_name='قیمت')
+    size = models.CharField(max_length=1 ,choices=SIZE , null=True, verbose_name='سایز')
     created_at = models.DateTimeField(auto_now_add=True, null=True, verbose_name='تاریخ ساخت')
     updated_at = models.DateTimeField(auto_now=True, null=True, verbose_name='تاریخ به روزرسانی')
-    released_at = models.DateTimeField(null=True, verbose_name='تاریخ انتشار')
     is_active = models.BooleanField(null=True, verbose_name='منتشر شده')
-
-    author = models.ForeignKey('Person', on_delete=models.SET_NULL, null=True, verbose_name='نویسنده', blank=True)
-    readers = models.ManyToManyField('Person', related_name='blogs', blank=True, verbose_name='خواننده ها') # add related_name to prevent errors
-
     image = models.ImageField(null=True, blank=True, verbose_name='عکس')
+    productFeatures = models.ManyToManyField('ProductFeatures', related_name='products')
 
     class Meta:
-        verbose_name = 'بلاگ'
-        verbose_name_plural = 'بلاگ ها'
+        verbose_name = 'محصول'
+        verbose_name_plural = 'محصولات'
 
 
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        print('hello world')
-        return super().save(*args, **kwargs)
+class ProductFeatures(models.Model):
+    title = models.CharField(max_length=127, null=True, verbose_name='عنوان')
 
 
 class Person(AbstractUser):
@@ -60,19 +63,7 @@ class Person(AbstractUser):
         return self.first_name + " " + self.last_name
 
 
-class Writer(Person):
 
-    class Meta:
-        verbose_name = 'نویسنده'
-        verbose_name_plural = 'نویسنده ها'
-
-class WebAdmin(Person):
-    class Meta:
-        verbose_name = 'منشی'
-        verbose_name_plural = 'منشی ها'
-
-class User(Person):
-    pass
 
 
 

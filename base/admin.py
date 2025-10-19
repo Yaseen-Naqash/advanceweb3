@@ -1,53 +1,46 @@
 from django.contrib import admin
-from .models import Blog, Writer, WebAdmin, User
+from .models import Product, ProductFeatures
 # Register your models here.
 
-class WriterAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Writer, WriterAdmin)
+admin.site.register(ProductFeatures)
 
-class WebAdminAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(WebAdmin, WebAdminAdmin)
+class ProductAdmin(admin.ModelAdmin):
 
+    list_display = ['title', 'price', 'size' ,'created_at']
 
-class BlogAdmin(admin.ModelAdmin):
+    search_fields = ['title', 'details', 'price']
+    list_filter = ['size', 'created_at']
 
-    list_display = ['views','title','rate' ,'created_at']
-
-    search_fields = ['title', 'body', 'views']
-    list_filter = ['author', 'created_at']
-
-    readonly_fields = ['views']
-    list_editable = ['rate']
+    # readonly_fields = ['price']
+    # list_editable = ['siez']
     # fields = ['title', 'body']
     # exclude = []
 
-    fieldsets = [
-        (
-            "متن بلاگ",
-            {
-                "fields": ["title", "body"],
-            },
-        ),
-        (
-            "اطلاعات بلاگ",
-            {
+    # fieldsets = [
+    #     (
+    #         "متن بلاگ",
+    #         {
+    #             "fields": ["title", "body"],
+    #         },
+    #     ),
+    #     (
+    #         "اطلاعات بلاگ",
+    #         {
                 
-                "fields": ["views", "rate"],
-            },
-        ),
-        (
-            "افراد",
-            {
+    #             "fields": ["views", "rate"],
+    #         },
+    #     ),
+    #     (
+    #         "افراد",
+    #         {
                 
-                "fields": ["author", "readers"],
-            },
-        ),
-    ]
+    #             "fields": ["author", "readers"],
+    #         },
+    #     ),
+    # ]
     
 
     pass
 
-admin.site.register(Blog, BlogAdmin)
+admin.site.register(Product, ProductAdmin)
  

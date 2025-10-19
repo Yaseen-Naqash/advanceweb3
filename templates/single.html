@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/single.css' %}" />
+    <title>single</title>
+  </head>
+  <body>
+    <!-- Hamber menu -->
+    <div id="hamber_body">
+      <nav>
+        <ul class="hamber_nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="contact-us.html">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+    {% url 'url_name' %}
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="header_wrapper">
+            <img src="{% static 'assets/images/logo.svg' %}" alt="Site logo" />
+            <ul class="nav_menu">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="../pages/contact-us.html">Contact us</a></li>
+            </ul>
+            <div class="header_btns">
+              <button class="account_btn">Login | Sign up</button>
+              <button id="hamber_btn">
+                <img src="{% static 'assets/images/icons/menus.png' %}" alt="hamber_menu" />
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <div class="container">
+          <a href="#">Home</a>
+          <a href="#">Shop</a>
+          <span>T-Shirt</span>
+        </div>
+      </div>
+
+      <!-- Single product -->
+      <section class="single_product">
+        <div class="container">
+          <div class="single_product_wrapper">
+            <div class="single_product_section">
+              <div class="single_product_img">
+                <img src="{% static 'assets/images/product1.png' %}" alt="" />
+              </div>
+            </div>
+            <div class="single_product_section">
+              <div class="single_product_right">
+                <div class="single_product_body">
+                  <h4 class="single_product_title">T-Shirt gray color</h4>
+                  <p class="single_product_price">$40</p>
+                </div>
+                <div class="single_product_sizes">
+                  <p class="single_product_size">XXL</p>
+                  <p class="single_product_size">XL</p>
+                  <p class="single_product_size">L</p>
+                  <p class="single_product_size">M</p>
+                </div>
+                <div class="single_product_features">
+                  <h4 class="single_product_features_title">
+                    Product features:
+                  </h4>
+                  <p class="single_product_features">Simple</p>
+                  <p class="single_product_features">150CM</p>
+                  <p class="single_product_features">Gray</p>
+                </div>
+                <div class="single_product_description">
+                  <h4 class="single_product_description_title">Details:</h4>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Magnam consectetur numquam inventore facilis sapiente
+                    distinctio expedita. Error esse consequatur aspernatur iure
+                    eligendi, recusandae cumque quas at ducimus explicabo
+                    officia nihil!
+                  </p>
+                </div>
+                <div class="single_product_btn">
+                  <button class="add_to_cart">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="new_products">
+        <div class="container">
+          <h2>New Products</h2>
+
+          <div class="products">
+            <!-- Product 1 -->
+            <div class="product">
+              <div class="product_card">
+                <img src="{% static 'assets/images/product1.png' %}" alt="" />
+                <div class="card_body">
+                  <div class="body_part">
+                    <p class="title">T-shirt</p>
+                    <p class="price">45$</p>
+                  </div>
+                  <div class="body_part">
+                    <p class="description">Size 40</p>
+                    <p class="discount">40$</p>
+                  </div>
+                  <div class="product_btn">
+                    <a href="pages/single.html" class="product_button">View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+              <div class="product_card">
+                <img src="{% static 'assets/images/product2.jpg' %}" alt="" />
+                <div class="card_body">
+                  <div class="body_part">
+                    <p class="title">T-shirt</p>
+                    <p class="price">90$</p>
+                  </div>
+                  <div class="body_part">
+                    <p class="description">Size 32</p>
+                    <p class="discount">85$</p>
+                  </div>
+                  <a href="#" class="product_button">View</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+              <div class="product_card">
+                <img src="{% static 'assets/images/product1.png' %}" alt="" />
+                <div class="card_body">
+                  <div class="body_part">
+                    <p class="title">T-shirt</p>
+                    <p class="price">45$</p>
+                  </div>
+                  <div class="body_part">
+                    <p class="description">Size 40</p>
+                    <p class="discount">40$</p>
+                  </div>
+                  <a href="#" class="product_button">View</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+              <div class="product_card">
+                <img src="{% static 'assets/images/product2.jpg' %}" alt="" />
+                <div class="card_body">
+                  <div class="body_part">
+                    <p class="title">T-shirt</p>
+                    <p class="price">90$</p>
+                  </div>
+                  <div class="body_part">
+                    <p class="description">Size 32</p>
+                    <p class="discount">85$</p>
+                  </div>
+
+                  <a href="#" class="product_button">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comments -->
+      <section class="comments">
+        <div class="container">
+          <h2>Comments:</h2>
+          <div class="comments_wrapper">
+            <div class="comment">
+              <div class="comment_part_l">
+                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
+              </div>
+              <div class="comment_part_r">
+                <h5 class="comment_user_name">Dave</h5>
+                <p part="comment_text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  pariatur doloremque dolores labore perferendis neque velit
+                  tempora unde explicabo sequi deleniti magni, quas repellendus
+                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Sit pariatur doloremque dolores
+                  labore perferendis neque velit tempora unde explicabo sequi
+                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
+                  et.
+                </p>
+                <span class="suggest">I suggest this Product</span>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment_part_l">
+                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
+              </div>
+              <div class="comment_part_r">
+                <h5 class="comment_user_name">Mary</h5>
+                <p part="comment_text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  pariatur doloremque dolores labore perferendis neque velit
+                  tempora unde explicabo sequi deleniti magni, quas repellendus
+                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Sit pariatur doloremque dolores
+                  labore perferendis neque velit tempora unde explicabo sequi
+                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
+                  et.
+                </p>
+                <span class="not_suggest">I don't suggest this Product</span>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment_part_l">
+                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
+              </div>
+              <div class="comment_part_r">
+                <h5 class="comment_user_name">John</h5>
+                <p part="comment_text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+                  pariatur doloremque dolores labore perferendis neque velit
+                  tempora unde explicabo sequi deleniti magni, quas repellendus
+                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Sit pariatur doloremque dolores
+                  labore perferendis neque velit tempora unde explicabo sequi
+                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
+                  et.
+                </p>
+                <span class="suggest">I suggest this Product</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer_wrapper">
+          <div class="footer_part">
+            <h3>About Us</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.Lorem,
+              ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+          <div class="footer_part">
+            <h3>Categories</h3>
+            <div class="list_wrapper">
+              <ul>
+                <li><a href="#">T-Shirt</a></li>
+                <li><a href="#">T-Shirt</a></li>
+                <li><a href="#">T-Shirt</a></li>
+                <li><a href="#">T-Shirt</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_part">
+            <h3>Contact Us</h3>
+
+            <p><span>Number:</span> +8999999999</p>
+            <p><span>Gmail:</span> test@test.com</p>
+            <p><span>Address:</span> USA</p>
+          </div>
+          <div class="footer_part">
+            <div class="footer_logo">
+              <img src="{% static 'assets/images/logo.svg' %}" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="under_footer">
+          <div class="under_part">
+            <a href="#"
+              ><img
+                src="{% static 'assets/images/icons/instagram-167-svgrepo-com.svg' %}"
+                alt=""
+            /></a>
+            <a href="#"
+              ><img
+                src="{% static 'assets/images/icons/twitter-boxed-svgrepo-com.svg' %}"
+                alt=""
+            /></a>
+            <a href="#"
+              ><img
+                src="{% static 'assets/images/icons/telegram-svgrepo-com.svg' %}"
+                alt=""
+            /></a>
+          </div>
+          <div class="under_part">Test test test test testtest test</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

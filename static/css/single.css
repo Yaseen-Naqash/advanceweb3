@@ -1,0 +1,138 @@
+/* Breadcrumbs */
+
+.breadcrumbs {
+  padding: 20px 0;
+  background-color: #dad9fb;
+  box-shadow: 0 0 2px #909090;
+}
+
+.breadcrumbs a {
+  color: #1a2980;
+  transition: 0.3s;
+}
+
+.breadcrumbs a:hover {
+  color: #7a85c1;
+}
+
+.breadcrumbs span {
+  color: #1a2980;
+}
+
+.breadcrumbs a::after {
+  content: "";
+  display: inline-block;
+  background: url("../images/icons/arrow-right-svgrepo-com.svg");
+  background-size: cover;
+  width: 15px;
+  height: 22px;
+  vertical-align: -7px;
+  margin: 0 5px;
+}
+
+/* Single product */
+.single_product {
+  margin: 8% 0;
+}
+
+.single_product_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px;
+}
+
+.single_product_img img {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.single_product_sizes {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.single_product_size {
+  border: 2px solid #1a2980;
+  width: 30px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.add_to_cart {
+  margin-top: 20px;
+  border: none;
+  background-color: #1a2980;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add_to_cart:hover {
+  background-color: #3b38a0;
+  transform: scale(1.04);
+  box-shadow: 1px 1px 5px #1a2980;
+}
+
+/* Comments */
+.comments {
+  margin: 8% 0;
+}
+
+.comments_wrapper {
+  box-shadow: 0 0 5px #eee;
+  padding: 20px;
+}
+
+.comment {
+  display: flex;
+  gap: 30px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment_part_l {
+  flex: 0;
+}
+
+.comment_part_r {
+  flex: 1;
+}
+
+.comment_part_r h5 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+}
+
+.comment_part_r p {
+  margin-bottom: 15px;
+  color: #4a4a4a;
+}
+
+.comment_part_l img {
+  width: 50px;
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.suggest {
+  color: green;
+  font-weight: bold;
+}
+
+.not_suggest {
+  color: red;
+  font-weight: bold;
+}

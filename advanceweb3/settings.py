@@ -60,7 +60,7 @@ ROOT_URLCONF = 'advanceweb3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,6 +132,5 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = 'uploaded_images'
 
 AUTH_USER_MODEL = 'base.Person'
-
-
-
+# This tells Django to look in the 'static/' directory in your root project folder]
+STATICFILES_DIRS = [BASE_DIR / 'static',]  

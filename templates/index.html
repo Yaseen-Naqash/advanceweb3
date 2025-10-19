@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+  <title>home</title>
+</head>
+
+<body>
+  <!-- Hamber menu -->
+  <div id="hamber_body">
+    <nav>
+      <ul class="hamber_nav">
+        <li><a href="">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="pages/contact-us.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="header_wrapper">
+          <img src="{% static 'assets/images/logo.svg' %}" alt="Site logo" />
+          <ul class="nav_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="pages/contact-us.html">Contact us</a></li>
+          </ul>
+          <div class="header_btns">
+            <button class="account_btn">Login | Sign up</button>
+            <button id="hamber_btn">
+              <img src="{% static 'assets/images/icons/menus.png' %}" alt="hamber_menu" />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <div class="container">
+        <div class="intro_wrapper">
+          <div class="intro_part">
+            <div class="intro_left">
+              <h1>
+                Everything you love,<br />
+                delivered to your door
+              </h1>
+              <button class="etc">{{ x.price }}</button>
+            </div>
+          </div>
+          <div class="intro_part">
+            <div class="intro_right">
+              <img src="{% static 'assets/images/page-intro.png' %}" alt="Page-intro-image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Products -->
+    <section class="new_products">
+      <div class="container">
+        <h2>New Products</h2>
+        <div class="products">
+          <!-- Product 1 -->
+          {% for item in x %}
+
+          <div class="product">
+            <div class="product_card">
+              <img src="{{item.image.url}}" alt="Product-1" />
+              <div class="card_body">
+                <div class="body_part">
+                  <p class="title"> this is title {{ item.title }}</p>
+                  <p class="price">{{ item.price }}$</p>
+                </div>
+                <div class="body_part">
+                  <p class="description">this is size {{itme.size}}</p>
+                  <p class="discount">10$</p>
+                </div>
+                <div class="product_btn">
+                  <a href="{% url 'single_url' %}" class="product_button">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About us -->
+    <section class="about_us">
+      <div class="container">
+        <div class="about_wrapper">
+          <div class="about_part">
+            <div class="img_wrapper">
+              <img src="{% static 'assets/images/online-support.png' %}" alt="online-support" />
+            </div>
+            <div class="body_wrapper">
+              <h5>24-hour Support</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="about_part">
+            <img src="{% static 'assets/images/post express.png' %}" alt="post-express" />
+            <div class="body_wrapper">
+              <h5>24-hour Support</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="about_part">
+            <img src="{% static 'assets/images/safe payment.png' %}" alt="safe-payment" />
+            <div class="body_wrapper">
+              <h5>24-hour Support</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="about_part">
+            <img src="{% static 'assets/images/store.png' %}" alt="store" />
+            <div class="body_wrapper">
+              <h5>24-hour Support</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer_wrapper">
+        <div class="footer_part">
+          <h3>About Us</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.Lorem,
+            ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="footer_part">
+          <h3>Categories</h3>
+          <div class="list_wrapper">
+            <ul>
+              <li><a href="#">T-Shirt</a></li>
+              <li><a href="#">T-Shirt</a></li>
+              <li><a href="#">T-Shirt</a></li>
+              <li><a href="#">T-Shirt</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer_part">
+          <h3>Contact Us</h3>
+
+          <p><span>Number:</span> +8999999999</p>
+          <p><span>Gmail:</span> test@test.com</p>
+          <p><span>Address:</span> USA</p>
+        </div>
+        <div class="footer_part">
+          <div class="footer_logo">
+            <img src="{% static 'assets/images/logo.svg' %}" alt="footer-site-logo" />
+          </div>
+        </div>
+      </div>
+      <div class="under_footer">
+        <div class="under_part">
+          <a href="#"><img src="{% static 'assets/images/icons/instagram-167-svgrepo-com.svg' %}" alt="instagram" /></a>
+          <a href="#"><img src="{% static 'assets/images/icons/twitter-boxed-svgrepo-com.svg' %}" alt="twitter" /></a>
+          <a href="#"><img src="{% static 'assets/images/icons/telegram-svgrepo-com.svg' %}" alt="telegram" /></a>
+        </div>
+        <div class="under_part">Test test test test testtest test</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/style/panel.css" />
+    <link rel="stylesheet" href="../assets/style/responsive.css" />
+    <title>Site panel</title>
+  </head>
+  <body>
+    <div class="panel_main">
+      <header>
+        <div class="container">
+          <div class="panel_header">
+            <div class="user_name">
+              <img src="../assets/images/profile.svg" alt="" />
+              <span>Dave</span>
+            </div>
+            <a href="../index.html">
+              <img src="../assets/images/logo.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Responsive sidebar -->
+      <div class="responsive_side">
+        <div class="profile_img">
+          <img src="../assets/images/profile.svg" alt="" />
+        </div>
+
+        <div class="icons">
+          <a href="#"
+            ><img
+              src="../assets/images/icons/panel-icons/setting.svg"
+              alt="setting"
+          /></a>
+
+          <a href="#"
+            ><img src="../assets/images/icons/panel-icons/list.svg" alt="list"
+          /></a>
+
+          <a href="#"
+            ><img
+              src="../assets/images/icons/panel-icons/category.svg"
+              alt="category"
+          /></a>
+
+          <a href="#"
+            ><img
+              src="../assets/images/icons/panel-icons/accounting.svg"
+              alt="accounting"
+          /></a>
+
+          <a href="#"
+            ><img
+              src="../assets/images/icons/panel-icons/shopping.svg"
+              alt="shopping"
+          /></a>
+
+          <a href="#"
+            ><img
+              src="../assets/images/icons/panel-icons/discount.svg"
+              alt="discount"
+          /></a>
+
+          <a href="#">
+            <img src="../assets/images/icons/panel-icons/exit.svg" alt=""
+          /></a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side_bar">
+        <div class="main_side">
+          <div class="top_part">
+            <img src="../assets/images/profile.svg" alt="" />
+          </div>
+          <div class="bottom_part">
+            <ul class="side_menu">
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/setting.svg"
+                    alt="setting"
+                  />Main page settings</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/list.svg"
+                    alt="list"
+                  />Lists</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/category.svg"
+                    alt="category"
+                  />Categories</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/accounting.svg"
+                    alt="accounting"
+                  />Accounting</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/shopping.svg"
+                    alt="shopping"
+                  />Products</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/discount.svg"
+                    alt="discount"
+                  />Discount code</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/icons/panel-icons/exit.svg"
+                    alt="exit"
+                  />Exit</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel body -->
+      <div class="panel_body">
+        <h1>Main settings</h1>
+        <hr />
+        <form action="">
+          <div class="title_input">
+            <label for="title">Site title :</label>
+            <input type="text" name="site-title" id="title" />
+          </div>
+
+          <div class="main_color">
+            <label for="main_color">Choose main color :</label>
+            <input type="color" name="main-color" id="main_color" />
+          </div>
+
+          <div class="second_color">
+            <label for="second_color">Choose a complementary color :</label>
+            <input type="color" name="second-color" id="second_color" />
+          </div>
+
+          <div class="upload_file">
+            <label for="upload_file">Choose site logo :</label>
+            <input type="file" name="upload-file" id="upload_file" />
+          </div>
+
+          <div class="introduction_text">
+            <label for="introduction_text">Site introduction :</label>
+            <input
+              type="text"
+              name="introduction-text"
+              id="introduction_text"
+            />
+          </div>
+
+          <div class="submit">
+            <input type="submit" name="submit" id="submit" value="Save" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
