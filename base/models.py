@@ -31,9 +31,11 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True, verbose_name='عکس')
     productFeatures = models.ManyToManyField('ProductFeatures', related_name='products')
     discount = models.IntegerField(null=True, blank=True, verbose_name='تخفیف')
+
     class Meta:
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'
+
 
 
     @property
