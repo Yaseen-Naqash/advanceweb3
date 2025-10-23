@@ -57,7 +57,7 @@
                 Everything you love,<br />
                 delivered to your door
               </h1>
-              <button class="etc">{{ x.price }}</button>
+              <button class="etc">Shop Now!</button>
             </div>
           </div>
           <div class="intro_part">
@@ -75,27 +75,32 @@
         <h2>New Products</h2>
         <div class="products">
           <!-- Product 1 -->
-          {% for item in x %}
+          {% for item in products %}
 
-          <div class="product">
+          <div class="product ">
             <div class="product_card">
               <img src="{{item.image.url}}" alt="Product-1" />
               <div class="card_body">
                 <div class="body_part">
                   <p class="title"> this is title {{ item.title }}</p>
-                  <p class="price">{{ item.price }}$</p>
+                  <p class="price" style="{% if item.discount > 0  %} text-decoration: line-through; {% endif %}">{{ item.price }}$</p>
                 </div>
                 <div class="body_part">
-                  <p class="description">this is size {{itme.size}}</p>
-                  <p class="discount">10$</p>
+                  <p class="description"> Size {{item.get_size_display }} </p>
+                  <p class="final-price">{% if item.price != item.final_price %} {{ item.final_price }}$ {% endif %}</p>
+
                 </div>
                 <div class="product_btn">
                   <a href="{% url 'single_url' %}" class="product_button">View</a>
+                  <p class="discount"> {% if item.discount > 0 %} {{ item.discount }}% {% endif %} </p>
+
                 </div>
               </div>
             </div>
           </div>
           {% endfor %}
+
+
 
         </div>
       </div>

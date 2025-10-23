@@ -10,6 +10,7 @@ phone_validator = RegexValidator(
     regex=r'^\d+$',
     message="Phone number must contain only digits"
 )
+
 class Product(models.Model):
 
     SIZE = [
@@ -19,7 +20,7 @@ class Product(models.Model):
         ('3','M'),
 
     ]
-    
+
     title = models.CharField(max_length=127, null=True, verbose_name='عنوان')
     details = models.TextField(max_length=2047, null=True, blank=True, verbose_name='توضیحات')
     price = models.IntegerField(null=True, verbose_name='قیمت')
@@ -29,10 +30,18 @@ class Product(models.Model):
     is_active = models.BooleanField(null=True, verbose_name='منتشر شده')
     image = models.ImageField(null=True, blank=True, verbose_name='عکس')
     productFeatures = models.ManyToManyField('ProductFeatures', related_name='products')
-
+    discount = models.IntegerField(null=True, blank=True, verbose_name='تخفیف')
     class Meta:
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'
+
+
+    @property
+    def final_price(self):
+        if self.discount > 0:
+            return self.price * (1 - self.discount/100)
+        
+        return self.price
 
 
     def __str__(self):

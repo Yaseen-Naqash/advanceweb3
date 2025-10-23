@@ -4,13 +4,16 @@ from .models import Product
 
 def home_page(request):
 
-    prodcuts = Product.objects.all()
+    products = Product.objects.all()
 
     context = {
-        'x' : prodcuts
-
+        'products':products,
     }
-    return render(request, 'index.html',context )
+
+    return render (request, 'index.html', context)
+
+
+
 
 def single(request):
 

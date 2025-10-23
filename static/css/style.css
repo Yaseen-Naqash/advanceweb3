@@ -241,17 +241,25 @@ header {
 }
 
 .body_part .price {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }
 
 .body_part .description {
   font-size: 14px;
 }
+.body_part .final-price{
+    font-size: 20px;
 
+}
 .body_part .discount {
   font-size: 20px;
 }
-
+.product_btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 .product_button a {
   color: #fff;
 }
@@ -263,6 +271,7 @@ header {
   padding: 6px 15px;
   border-radius: 20px;
   transition: all 0.3s;
+
 }
 
 .product_button:hover {
