@@ -114,3 +114,58 @@ session 3
                 path('admin/', admin.site.urls),
                 path('', include('base.urls'))
             ]
+
+
+session 4
+
+    CREATING CUSTOM MANAGE.PY COMMANDS
+        1- create a folder named "management" in one of your apps
+        2- create another folder named "commands" in the management folder
+        3- create a python file with your favorite name (.py)
+        4- write these inside the python file 
+
+            from django.core.management.base import BaseCommand
+            class Command(BaseCommand):
+                help = 'help text'
+
+                def handle(self, *args, **kwargs):
+
+                ((( write your logic here )))
+
+                pass
+
+
+    CREATE PAGINATIONS
+        1- in views.py import : from django.core.paginator import Paginator
+        2- in your function write these logic for creating and getting page number :
+            object_list = Product.objects.all()
+            paginator = Paginator(object_list, 16)
+            page = request.GET.get('page') if request.GET.get('page') else 1
+            objects = paginator.get_page(page)
+
+        3- send the new objects to front end:
+            context = {
+                'objects':objects,
+            }
+
+            return render (request, 'index.html', context)
+
+        4- use template paginator like this :
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if objects.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ objects.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ objects.number }} of {{ objects.paginator.num_pages }}.
+                    </span>
+
+                    {% if objects.has_next %}
+                        <a href="?page={{ objects.next_page_number }}">next</a>
+                        <a href="?page={{ objects.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>

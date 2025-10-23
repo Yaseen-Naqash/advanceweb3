@@ -6,11 +6,11 @@ from django.core.paginator import Paginator
 def home_page(request):
 
     products_list = Product.objects.all()
-    x = Paginator(products_list, 16)
+    paginator = Paginator(products_list, 16)
 
     page = request.GET.get('page') if request.GET.get('page') else 1
 
-    products = x.get_page(page)
+    products = paginator.get_page(page)
     context = {
         'products':products,
     }
