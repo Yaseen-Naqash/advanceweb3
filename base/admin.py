@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Product, ProductFeatures
+from .models import Product, ProductFeatures, Comment, Person
 # Register your models here.
 
 admin.site.register(ProductFeatures)
-
+admin.site.register(Comment)
+admin.site.register(Person)
 class ProductAdmin(admin.ModelAdmin):
 
     list_display = ['title', 'price', 'size' ,'created_at']

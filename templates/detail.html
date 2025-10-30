@@ -54,43 +54,61 @@
         </div>
       </div>
 
+       <!-- for feature in product.productFeatures.all  -->
+
       <!-- Single product -->
       <section class="single_product">
         <div class="container">
           <div class="single_product_wrapper">
             <div class="single_product_section">
               <div class="single_product_img">
-                <img src="{% static 'assets/images/product1.png' %}" alt="" />
+                {% if product.image %}
+                  <img src="{{ product.image.url }}" alt="" />
+                {% else %}
+                  <img src="{% static 'assets/images/store.png' %}" alt="" />
+
+                {% endif %}
+
               </div>
             </div>
             <div class="single_product_section">
               <div class="single_product_right">
                 <div class="single_product_body">
                   <h4 class="single_product_title">{{ product.title }}</h4>
-                  <p class="single_product_price">$40</p>
+                  <div class="price-row">
+
+                    
+                    <h3 class="single_product_price" style="{% if product.price != product.final_price %} text-decoration: line-through; opacity: 0.4; {% endif %}">${{ product.price }}</h3>
+                    {% if product.price != product.final_price %}
+                    <h3 class="single_product_price">${{ product.final_price }}</h3>
+                    {% endif %}
+                  </div>
                 </div>
                 <div class="single_product_sizes">
-                  <p class="single_product_size">XXL</p>
-                  <p class="single_product_size">XL</p>
-                  <p class="single_product_size">L</p>
-                  <p class="single_product_size">M</p>
+                  <p class="single_product_size {% if product.size == '0' %} selected {% endif %}">XXL</p>
+                  <p class="single_product_size {% if product.size == '1' %} selected {% endif %}">XL</p>
+                  <p class="single_product_size {% if product.size == '2' %} selected {% endif %}">L</p>
+                  <p class="single_product_size {% if product.size == '3' %} selected {% endif %}">M</p>
                 </div>
                 <div class="single_product_features">
                   <h4 class="single_product_features_title">
                     Product features:
                   </h4>
-                  <p class="single_product_features">Simple</p>
-                  <p class="single_product_features">150CM</p>
-                  <p class="single_product_features">Gray</p>
+                  {% if product.productFeatures %}
+                    {% for feature in product.productFeatures.all %}
+                    
+                      <p class="single_product_features">{{ feature.title }}</p>
+
+                    {% endfor %}
+                  {% else %}
+                    <p>no features</p>
+                  {% endif %}
                 </div>
                 <div class="single_product_description">
                   <h4 class="single_product_description_title">Details:</h4>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Magnam consectetur numquam inventore facilis sapiente
-                    distinctio expedita. Error esse consequatur aspernatur iure
-                    eligendi, recusandae cumque quas at ducimus explicabo
-                    officia nihil!
+
+                    {{ product.details }}
                   </p>
                 </div>
                 <div class="single_product_btn">
@@ -107,80 +125,36 @@
           <h2>New Products</h2>
 
           <div class="products">
+
+          {% for similar_product in similar_products %}
             <!-- Product 1 -->
-            <div class="product">
-              <div class="product_card">
-                <img src="{% static 'assets/images/product1.png' %}" alt="" />
-                <div class="card_body">
-                  <div class="body_part">
-                    <p class="title">T-shirt</p>
-                    <p class="price">45$</p>
-                  </div>
-                  <div class="body_part">
-                    <p class="description">Size 40</p>
-                    <p class="discount">40$</p>
-                  </div>
-                  <div class="product_btn">
-                    <a href="pages/single.html" class="product_button">View</a>
-                  </div>
+
+          <div class="product ">
+            <div class="product_card">
+              {% if similar_product.image %}
+              <img src="{{similar_product.image.url}}" alt="Product-1" />
+              {% else %}
+              <img src="{% static 'assets/images/store.png' %}" alt="Product-1" />
+              {% endif %}
+              <div class="card_body">
+                <div class="body_part">
+                  <p class="title">{{ similar_product.title }}</p>
+                  <p class="price" style="{% if similar_product.discount > 0  %} text-decoration: line-through; {% endif %}">{{ similar_product.price }}$</p>
+                </div>
+                <div class="body_part">
+                  <p class="description"> Size {{similar_product.get_size_display }} </p>
+                  <p class="final-price">{% if similar_product.price != similar_product.final_price %} {{ similar_product.final_price }}$ {% endif %}</p>
+
+                </div>
+                <div class="product_btn">
+                  <a href="{% url 'detail_url' similar_product.id %}" class="product_button">View</a>
+                  <p class="discount"> {% if similar_product.discount > 0 %} {{ similar_product.discount }}% {% endif %} </p>
+
                 </div>
               </div>
             </div>
-
-            <!-- Product 2 -->
-            <div class="product">
-              <div class="product_card">
-                <img src="{% static 'assets/images/product2.jpg' %}" alt="" />
-                <div class="card_body">
-                  <div class="body_part">
-                    <p class="title">T-shirt</p>
-                    <p class="price">90$</p>
-                  </div>
-                  <div class="body_part">
-                    <p class="description">Size 32</p>
-                    <p class="discount">85$</p>
-                  </div>
-                  <a href="#" class="product_button">View</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product">
-              <div class="product_card">
-                <img src="{% static 'assets/images/product1.png' %}" alt="" />
-                <div class="card_body">
-                  <div class="body_part">
-                    <p class="title">T-shirt</p>
-                    <p class="price">45$</p>
-                  </div>
-                  <div class="body_part">
-                    <p class="description">Size 40</p>
-                    <p class="discount">40$</p>
-                  </div>
-                  <a href="#" class="product_button">View</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product">
-              <div class="product_card">
-                <img src="{% static 'assets/images/product2.jpg' %}" alt="" />
-                <div class="card_body">
-                  <div class="body_part">
-                    <p class="title">T-shirt</p>
-                    <p class="price">90$</p>
-                  </div>
-                  <div class="body_part">
-                    <p class="description">Size 32</p>
-                    <p class="discount">85$</p>
-                  </div>
-
-                  <a href="#" class="product_button">View</a>
-                </div>
-              </div>
-            </div>
+          </div>
+            {% endfor %}
           </div>
         </div>
       </section>
@@ -189,66 +163,38 @@
       <section class="comments">
         <div class="container">
           <h2>Comments:</h2>
+
           <div class="comments_wrapper">
-            <div class="comment">
-              <div class="comment_part_l">
-                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
-              </div>
-              <div class="comment_part_r">
-                <h5 class="comment_user_name">Dave</h5>
-                <p part="comment_text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  pariatur doloremque dolores labore perferendis neque velit
-                  tempora unde explicabo sequi deleniti magni, quas repellendus
-                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Sit pariatur doloremque dolores
-                  labore perferendis neque velit tempora unde explicabo sequi
-                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
-                  et.
-                </p>
-                <span class="suggest">I suggest this Product</span>
-              </div>
-            </div>
 
-            <div class="comment">
-              <div class="comment_part_l">
-                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
-              </div>
-              <div class="comment_part_r">
-                <h5 class="comment_user_name">Mary</h5>
-                <p part="comment_text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  pariatur doloremque dolores labore perferendis neque velit
-                  tempora unde explicabo sequi deleniti magni, quas repellendus
-                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Sit pariatur doloremque dolores
-                  labore perferendis neque velit tempora unde explicabo sequi
-                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
-                  et.
-                </p>
-                <span class="not_suggest">I don't suggest this Product</span>
-              </div>
-            </div>
+            {% if product.comments.all %}
 
-            <div class="comment">
-              <div class="comment_part_l">
-                <img src="{% static 'assets/images/profile.svg' %}" alt="" />
+              {% for comment in product.comments.all %}
+              <div class="comment">
+                <div class="comment_part_l">
+                  <img src="{% static 'assets/images/profile.svg' %}" alt="" />
+                </div>
+                <div class="comment_part_r">
+                  <h5 class="comment_user_name">{{ comment.user }}</h5>
+                  <p part="comment_text">
+                      {{ comment.body }}
+                  </p>
+                  {% if comment.summary == '0' %}
+                  <span class="suggest">{{ comment.get_summary_display }}</span>
+                  {% elif comment.summary == '1' %}
+                  <span class="not_suggest">{{ comment.get_summary_display }}</span>
+                  {% elif comment.summary == '2' %}
+                  <span class="" style="font-weight: bold;">{{ comment.get_summary_display }}</span>
+                  {% else %}
+                  <span class="" style="font-weight: bold;">undifined</span>
+                  {% endif %}
+                </div>
               </div>
-              <div class="comment_part_r">
-                <h5 class="comment_user_name">John</h5>
-                <p part="comment_text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  pariatur doloremque dolores labore perferendis neque velit
-                  tempora unde explicabo sequi deleniti magni, quas repellendus
-                  aliquam. Vel nulla aperiam ab et. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Sit pariatur doloremque dolores
-                  labore perferendis neque velit tempora unde explicabo sequi
-                  deleniti magni, quas repellendus aliquam. Vel nulla aperiam ab
-                  et.
-                </p>
-                <span class="suggest">I suggest this Product</span>
-              </div>
-            </div>
+              {% endfor %}
+
+            {% else %}
+              <h3> no Comments</h3>
+            {% endif %}
+
           </div>
         </div>
       </section>

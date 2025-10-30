@@ -169,3 +169,21 @@ session 4
                     {% endif %}
                 </span>
             </div>
+
+session 5
+
+    MAKING A SPECIFIC MODEL PAGE
+        1- make a fucntion with two input [def product(request, pk)] in views.py
+        2- make a url with a pk output like :
+            path('product/<int:pk>', product, name='detail_url'),
+        3- get the id in function and get that item from data base in views.py
+            product = Product.objects.get(id=pk)
+        4- send this product using a context to frontend
+            context = {
+                'product':product,
+            }
+            return render(request, 'detail.html', context)
+
+        5- refer to this product page href with :
+            {% url 'detail_url' object.id %}
+        

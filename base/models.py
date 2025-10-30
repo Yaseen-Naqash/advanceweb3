@@ -30,7 +30,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True, verbose_name='عکس')
     productFeatures = models.ManyToManyField('ProductFeatures', related_name='products')
     discount = models.IntegerField(null=True, blank=True, verbose_name='تخفیف')
-
+    
     class Meta:
         verbose_name = 'محصول'
         verbose_name_plural = 'محصولات'
@@ -50,7 +50,8 @@ class Product(models.Model):
 
 class ProductFeatures(models.Model):
     title = models.CharField(max_length=127, null=True, verbose_name='عنوان')
-
+    def __str__(self):
+        return self.title
 
 class Person(AbstractUser):
 
@@ -73,7 +74,16 @@ class Person(AbstractUser):
         return self.first_name + " " + self.last_name
 
 
+class Comment(models.Model):
+    SUMMARY = [
+        ('0','I suggest this Product'),
+        ('1',"I don't suggest this Product"),
+        ('2','I have no idea'),
+    ]
 
-
+    user = models.ForeignKey(Person, on_delete=models.CASCADE, null=True)
+    body = models.TextField(max_length=2047, null=True)
+    summary = models.CharField(max_length=1, choices=SUMMARY, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='comments')
 
 

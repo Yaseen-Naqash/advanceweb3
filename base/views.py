@@ -24,15 +24,24 @@ def home_page(request):
 
 
 def detail(request,pk):
-    print(pk)
 
     product = Product.objects.get(id=pk)
+    feature_ids = product.productFeatures.values_list('id', flat=True)
+
+    similar_product = Product.objects.filter(productFeatures__in=feature_ids).exclude(id=product.id)[:4]
 
     context = {
         'product':product,
+        'similar_products': similar_product,
     }
 
     return render(request, 'detail.html', context)
+
+
+
+
+
+
 
 def login_page(request):
     return render(request, 'login.html')
