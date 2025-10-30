@@ -95,7 +95,7 @@
 
                 </div>
                 <div class="product_btn">
-                  <a href="{% url 'single_url' %}" class="product_button">View</a>
+                  <a href="{% url 'detail_url' item.id %}" class="product_button">View</a>
                   <p class="discount"> {% if item.discount > 0 %} {{ item.discount }}% {% endif %} </p>
 
                 </div>
@@ -129,8 +129,8 @@
             
                 <a href="?page={{ products.next_page_number }}">next</a>
               {% endif %}
-
-                <a href="?page={{ products.paginator.num_pages }}">last </a>
+                
+                <a href="?page= ">last </a>
                         
             </div>
         </span>

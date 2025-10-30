@@ -18,7 +18,6 @@ class Product(models.Model):
         ('1','XL'),
         ('2','L'),
         ('3','M'),
-
     ]
 
     title = models.CharField(max_length=127, null=True, verbose_name='عنوان')

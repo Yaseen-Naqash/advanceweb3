@@ -6,9 +6,12 @@ from django.core.paginator import Paginator
 def home_page(request):
 
     products_list = Product.objects.all()
+
     paginator = Paginator(products_list, 16)
 
     page = request.GET.get('page') if request.GET.get('page') else 1
+
+
 
     products = paginator.get_page(page)
     context = {
@@ -20,9 +23,16 @@ def home_page(request):
 
 
 
-def single(request):
+def detail(request,pk):
+    print(pk)
 
-    return render(request, 'single.html')
+    product = Product.objects.get(id=pk)
+
+    context = {
+        'product':product,
+    }
+
+    return render(request, 'detail.html', context)
 
 def login_page(request):
     return render(request, 'login.html')
