@@ -2,6 +2,11 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 p {
   margin: 0;
@@ -418,4 +423,13 @@ footer {
 .selected{
   background-color: #1a2980;
   color: white;
+}
+.search-holder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search{
+  margin: 10px;
 }

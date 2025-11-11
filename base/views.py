@@ -5,10 +5,11 @@ from django.core.paginator import Paginator
 
 def home_page(request):
 
-    products_list = Product.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
 
+    products_list = Product.objects.filter(title__icontains = q)
+    
     paginator = Paginator(products_list, 16)
-
     page = request.GET.get('page') if request.GET.get('page') else 1
 
 
