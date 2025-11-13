@@ -433,3 +433,154 @@ footer {
 .search{
   margin: 10px;
 }
+
+
+/* =============== */
+
+
+        .filter-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 320px;
+            padding: 24px;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .filter-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .reset-btn {
+            background: none;
+            border: none;
+            color: #6c757d;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .reset-btn:hover {
+            color: #007bff;
+        }
+
+        .filter-section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #495057;
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .size-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .size-checkbox {
+            display: none;
+        }
+
+        .size-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #e2e6ea;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .size-checkbox:checked + .size-label {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .size-label:hover {
+            background-color: #e9ecef;
+        }
+
+        .size-checkbox:checked + .size-label:hover {
+            background-color: #0069d9;
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e6ea;
+            border-radius: 6px;
+            background-color: white;
+            font-size: 0.95rem;
+            color: #495057;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            transition: border-color 0.2s;
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+        .apply-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .apply-btn:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 480px) {
+            .filter-container {
+                padding: 18px;
+            }
+            
+            .size-options {
+                grid-template-columns: 1fr;
+            }
+        }

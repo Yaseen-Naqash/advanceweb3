@@ -134,3 +134,5 @@ MEDIA_ROOT = 'uploaded_images'
 AUTH_USER_MODEL = 'base.Person'
 # This tells Django to look in the 'static/' directory in your root project folder]
 STATICFILES_DIRS = [BASE_DIR / 'static',]  
+
+LOGIN_URL = 'login_url'

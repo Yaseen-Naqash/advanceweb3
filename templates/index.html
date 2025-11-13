@@ -33,6 +33,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Categories</a></li>
+            <li>{{ request.user.username }}</li>
             <li><a href="pages/contact-us.html">Contact us</a></li>
           </ul>
           <div class="header_btns">
@@ -72,7 +73,59 @@
       <h3>search here </h3>
       <form action="" method="GET">
           <input class="search" type="text" name="q" id="" placeholder="search...">
-          <button type="submit"> search </button>
+
+
+
+          <div class="filter-container">
+        <div class="filter-header">
+            <h2 class="filter-title">Filter Products</h2>
+            <button class="reset-btn">Reset</button>
+        </div>
+        
+        <div class="filter-section">
+            <h3 class="section-title">Size</h3>
+            <div class="size-options">
+                <div class="size-option">
+                    <input type="checkbox" id="size-m" class="size-checkbox" name="size" value="3">
+                    <label for="size-m" class="size-label">M</label>
+                </div>
+                <div class="size-option">
+                    <input type="checkbox" id="size-l" class="size-checkbox" name="size" value="2">
+                    <label for="size-l" class="size-label">L</label>
+                </div>
+                <div class="size-option">
+                    <input type="checkbox" id="size-xl" class="size-checkbox" name="size" value="1">
+                    <label for="size-xl" class="size-label">XL</label>
+                </div>
+                <div class="size-option">
+                    <input type="checkbox" id="size-xxl" class="size-checkbox" name="size" value="0">
+                    <label for="size-xxl" class="size-label">XXL</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3 class="section-title">Category</h3>
+            <div class="dropdown-container">
+                <select class="dropdown-select" name="feature" multiple>
+                    <option value="" disabled selected>Select a category</option>
+                    {% for feature in features %}
+
+                    <option value="{{feature.id}}">{{feature.title}}</option>
+
+                    {% endfor %}
+
+                </select>
+            </div>
+        </div>
+        
+        <button class="apply-btn" type="submit">Apply Filters</button>
+    </div>
+
+
+
+
+
       </form>
 
     </div>
