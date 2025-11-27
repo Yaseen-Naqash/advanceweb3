@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <title>{% block title %} title {% endblock %}</title>
+
+    {% block extracss %}
+      
+    {% endblock %}
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    .
+    .
+    .
+
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+    {% block extrajs %}
+      
+    {% endblock %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

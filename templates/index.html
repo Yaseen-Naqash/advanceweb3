@@ -1,51 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  {% load static %}
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
-  <title>home</title>
-</head>
+{% block title %} test {% endblock %}
 
-<body>
-  <!-- Hamber menu -->
-  <div id="hamber_body">
-    <nav>
-      <ul class="hamber_nav">
-        <li><a href="">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="pages/contact-us.html">Contact us</a></li>
-      </ul>
-    </nav>
-  </div>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="header_wrapper">
-          <img src="{% static 'assets/images/logo.svg' %}" alt="Site logo" />
-          <ul class="nav_menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Categories</a></li>
-            <li>{{ request.user.username }}</li>
-            <li><a href="pages/contact-us.html">Contact us</a></li>
-          </ul>
-          <div class="header_btns">
-            <button class="account_btn">Login | Sign up</button>
-            <button id="hamber_btn">
-              <img src="{% static 'assets/images/icons/menus.png' %}" alt="hamber_menu" />
-            </button>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+{% block content %}
+{% load static %}
 
   <main>
     <!-- Intro -->
@@ -280,7 +239,4 @@
     </div>
   </footer>
 
-  <script src="{% static 'js/script.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}

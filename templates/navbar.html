@@ -1,0 +1,40 @@
+
+    {% load static %}
+    
+  <!-- Hamber menu -->
+  <div id="hamber_body">
+    <nav>
+      <ul class="hamber_nav">
+        <li><a href="">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="pages/contact-us.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="header_wrapper">
+          <img src="{% static 'assets/images/logo.svg' %}" alt="Site logo" />
+          <ul class="nav_menu">
+            <li><a href="index.html">Home 2</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Categories</a></li>
+            <li>{{ request.user.username }}</li>
+            <li><a href="pages/contact-us.html">Contact us</a></li>
+          </ul>
+          <div class="header_btns">
+            <button class="account_btn">Login | Sign up</button>
+            <button id="hamber_btn">
+              <img src="{% static 'assets/images/icons/menus.png' %}" alt="hamber_menu" />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+

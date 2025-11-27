@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -125,3 +125,54 @@ def sign_up(request):
 def logout_command(request):
     logout(request)
     return redirect('login_url')
+
+
+def examsignup(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
+        print(username)
+        print(email)
+
+        print(pass1)
+
+        print(pass2)
+        
+
+        if pass1 != pass2:
+            return JsonResponse('error password does not match')
+
+        user = Person.objects.create(
+            username = username,
+            email = email,
+            password = pass1
+        )
+        user.set_password(pass1)
+        user.save()
+
+    return render(request, 'midexam.html')
+
+
+def examlogin(request):
+    if request.method == 'POST':
+        
+        username = request.POST.get('username')
+        pass1 = request.POST.get('pass1')
+        print(username)
+        print(pass1)
+
+        user = authenticate(username=username, password = pass1)
+        if user is not None:
+            login(request, user)
+        else:
+            return JsonResponse('username or password incorrect')
+
+        
+    return render(request, 'midexam.html')
+
+
+def testblock(request):
+    return render(request, 'test_base_block.html')
