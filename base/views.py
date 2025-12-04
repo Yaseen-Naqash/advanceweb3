@@ -10,12 +10,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home_page(request):
-
+    print (request.META['REMOTE_ADDR'])
     q = request.GET.get('q') if request.GET.get('q') != None else ''
 
     sizes = request.GET.getlist('size')
     feature_ids = request.GET.getlist('feature')
-
 
     products_list = Product.objects.filter( Q(title__icontains = q) | Q(details__icontains=q))
 
@@ -90,10 +89,6 @@ def login_page(request):
             return redirect('login_url')
 
 
-
-
-
-
     return render(request, 'login.html')
 
 def sign_up(request):
@@ -116,8 +111,7 @@ def sign_up(request):
             email = email,
             password=password1
         )
-        # user.set_password(password1)
-        user.save()
+
 
     return render(request, 'signup.html')
 

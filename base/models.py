@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 from django_jalali.db import models as jmodels
 from django.contrib.auth.hashers import make_password
 # Create your models here.
@@ -43,6 +43,22 @@ class Product(models.Model):
             return self.price * (1 - self.discount/100)
         
         return self.price
+    
+
+    @property
+    def rate(self):
+        
+        ratings = self.ratings.all()
+        counter = 0
+        rating_sum = 0
+        for rating in ratings:
+            counter +=1 
+            rating_sum += rating.rate
+        
+        if counter == 0:
+            return 0
+        else:
+            return rating_sum / counter
 
 
     def __str__(self):
@@ -68,6 +84,8 @@ class Person(AbstractUser):
     class Meta:
         verbose_name = 'شخص'
         verbose_name_plural = 'اشخاص'
+        
+    
 
 
     def __str__(self):
@@ -85,5 +103,26 @@ class Comment(models.Model):
     body = models.TextField(max_length=2047, null=True)
     summary = models.CharField(max_length=1, choices=SUMMARY, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, related_name='comments')
+
+
+class Rating(models.Model):
+
+
+    user = models.ForeignKey(Person, on_delete=models.SET_NULL, null=True, related_name='ratings')
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name='ratings')
+    rate = models.DecimalField(max_digits=3, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(5.00)])
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def save(self, *args, **kwargs):
+
+        print('hello world')
+
+        return super().save(*args, **kwargs)
+
+
+# class ProductImage(models.Model):
+#     product = models.ForeignKey(Product, related_name='images')
+#     image = models.ImageField()
 
 

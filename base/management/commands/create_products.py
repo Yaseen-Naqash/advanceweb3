@@ -1,6 +1,5 @@
 import random
 from django.core.management.base import BaseCommand
-from django.utils.text import slugify
 from base.models import Product, ProductFeatures
 
 class Command(BaseCommand):
